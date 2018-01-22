@@ -9,6 +9,7 @@ The text editor has just a few basic functions right now:
 - Appending lines to the end of the document
 - Quitting the text editor
 - Printing the document text
+- Editing text in the document
 
 ## Installing:
 Clone the repo to your local machine.
