@@ -19,3 +19,15 @@ for building the binary.
 
 ### Cargo run
 for running the debugging version.
+
+## Using:
+Upon opening the editor you'll be presented with an empty prompt.
+text or commands can be provided here at the prompt.
+
+Typing in text and pressing enter will append that text to the end of the file.
+
+### Commands:
+- :p will print the file to the screen.
+- :q will exit the file
+
+Currently the program lacks a way to save to disk.
