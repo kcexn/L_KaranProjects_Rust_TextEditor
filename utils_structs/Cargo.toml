@@ -1,7 +1,6 @@
 [package]
-name = "utils"
+name = "utils_structs"
 version = "0.1.0"
 authors = ["kevin <068ant@gmail.com>"]
 
 [dependencies]
-utils_structs = { path = "../utils_structs" }

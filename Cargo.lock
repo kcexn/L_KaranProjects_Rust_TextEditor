@@ -1,0 +1,19 @@
+[[package]]
+name = "text_editor"
+version = "0.1.0"
+dependencies = [
+ "utils 0.1.0",
+ "utils_structs 0.1.0",
+]
+
+[[package]]
+name = "utils"
+version = "0.1.0"
+dependencies = [
+ "utils_structs 0.1.0",
+]
+
+[[package]]
+name = "utils_structs"
+version = "0.1.0"
+
