@@ -20,17 +20,14 @@ pub fn check_for_commands(input: &mut TextData){
         ":p\n" => print(input.get_file()),
         ":e\n" => {
             let mut input_line = String::new();
-            io::stdin().read_line(&mut input_line).expect("failed to read line!");
+            io::stdin().read_line(&mut input_line);
             // Need to refactor this to handle inputs properly
-            let line_no: usize = input_line
+            let line_no: u32 = input_line
                 .trim()
                 .parse()
                 .expect("Expecting a number!");
             input.set_write_head(line_no);
-            input.print_write_line(line_no); 
-            let mut input_line = String::new();
-            io::stdin().read_line(&mut input_line).expect("failed to read line!");
-            input.edit_line(&input_line);
+            println!("{}", input.print_write_line());
         },
         _ => input.append_to_file(),
     }

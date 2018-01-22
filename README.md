@@ -29,5 +29,9 @@ Typing in text and pressing enter will append that text to the end of the file.
 ### Commands:
 - :p will print the file to the screen.
 - :q will exit the file
+- :e will begin the editing of a file
+	* after entering the command you will be prompted for a line number to edit. It's recommended you first print the file to see the lines
+	* The program will then print the line out that you are editing. If you change your mind copy paste the text back into the console
+	* enter will submit the changes and you will be taken back to the original console for appending.
 
 Currently the program lacks a way to save to disk.
