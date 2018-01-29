@@ -2,6 +2,11 @@ extern crate utils_structs;
 
 use std::io;
 use std::process;
+use std::error::Error;
+use std::io::prelude::*;
+use std::fs::File;
+use std::path::Path;
+
 use utils_structs::TextData; 
 
 pub fn read_from_stdin(mut input: &mut String) {
@@ -31,6 +36,37 @@ pub fn check_for_commands(input: &mut TextData){
             let mut input_line = String::new();
             io::stdin().read_line(&mut input_line).expect("failed to read line!");
             input.edit_line(&input_line);
+        },
+        ":w\n" => {
+            let mut file_path = String::new();
+            io::stdin().read_line(&mut file_path).expect("failed to read filename!");
+            // Need to refactor this to handle inputs properly.
+            let path = Path::new(&file_path);
+            let display = path.display();
+
+            let mut file = match File::create(&path) {
+                Err(why) => {
+                    panic!("couldn't create {}: {}",
+                           display,
+                           why.description())
+                },
+                Ok(file) => file,
+            };
+            
+            let mut file_body = String::new();
+            
+            for line in input.get_file().iter() {
+                file_body.push_str(&line);
+            }
+            
+            match file.write_all(file_body.as_bytes()) {
+                Err(why) => {
+                    panic!("Couldn't write to {}: {}",
+                           display,
+                           why.description());
+                },
+                Ok(_) => println!("successfully wrote to {}", display),
+            }
         },
         _ => input.append_to_file(),
     }
